@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="io.branch.branchster.feature">
+
+    <application
+        android:name=".ApplicationClass"
+        android:targetSandboxVersion="2">
+        <activity
+            android:name=".SplashActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Transparent"
+            >
+            <intent-filter android:order="1">
+                <action android:name="android.intent.action.VIEW"/>
+
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+
+                <data
+                    android:host="branchster.app.link"
+                    android:pathPattern="/hello"
+                    android:scheme="https"/>
+                <data
+                    android:host="branchster.app.link"
+                    android:pathPattern="/hello"
+                    android:scheme="http"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <data android:scheme="branchsters"/>
+                <action android:name="android.intent.action.VIEW"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+
+            <!-- AppLink config -->
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+
+                <data
+                    android:host="branchster.app.link"
+                    android:scheme="https"/>
+                <data
+                    android:host="branchster.app.link"
+                    android:scheme="http"/>
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".MonsterViewerActivity"
+            android:launchMode="singleInstance"
+            android:theme="@style/AppTheme"
+            android:screenOrientation="sensorPortrait">
+            <meta-data
+                android:name="io.branch.sdk.auto_link_path"
+                android:value="monster/view/"/>
+            <meta-data
+                android:name="io.branch.sdk.auto_link_request_code"
+                android:value="1001"/>
+        </activity>
+        <activity
+            android:name=".MonsterCreatorActivity"
+            android:launchMode="singleInstance"
+            android:theme="@style/AppTheme"
+            >
+        </activity>
+
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id"/>
+        <meta-data
+            android:name="io.branch.sdk.TestMode"
+            android:value="false"/>
+        <meta-data
+            android:name="io.branch.sdk.BranchKey"
+            android:value="@string/branch_key"/>
+        <meta-data
+            android:name="io.branch.sdk.BranchKey.test"
+            android:value="@string/branch_key_test"/>
+    </application>
+
+</manifest>
